@@ -1,3 +1,6 @@
+# https://github.com/05e/network-algorithms
+
+
 from network import Network
 # surely there's a better way to do this?
 from algorithms.dijkstra import Dijkstra

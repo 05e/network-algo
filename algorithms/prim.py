@@ -1,3 +1,5 @@
+# https://github.com/05e/network-algorithms
+
 import sys
 
 # n = node

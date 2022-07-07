@@ -1,0 +1,30 @@
+# network-algo
+Python Implementations of common network algorithms and network visualization through networkx
+
+## algorithms
+- **Dijkstra**'s Shortest Path Algorithm
+- **Kruskal**'s Minimum Spanning Tree Algorithm
+- **Prim**'s Minimum Spanning Tree Algorithm
+
+## network representation
+Networks are represented with an adjacency matrix
+e.g.
+```py
+[0, 0, 5, 2],
+[0, 0, 0, 4],
+[5, 0, 0, 0],
+[2, 4, 0, 0]
+```
+
+## main functions
+```py
+# Algorithms:
+Dijkstra(Network N, int Starting Node, [int Finish Node]) # Run and Display Dijkstra's Algorithm
+Kruskal(Network N) # Run and Display Kruskal's Algorithm
+Prim(Network N) # Run and Display Prim's Algorithm
+# Network:
+Network(int Vertices, [int Seed]) # Initialize network with given vertices number
+Network.G = [] # Set network adjacency matrix
+Network.drawNetwork() # Show network through plotmatlib
+Network.printNetwork() # Print network in terminal
+```

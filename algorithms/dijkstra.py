@@ -85,7 +85,7 @@ class Dijkstra():
         # prepend parent of parent to sp of node,
         # repeat until parent = sn
         spt = [[]] * self.N.V
-        spt[sn] = [n]
+        spt[sn] = [sn]
         for n in range(self.N.V):
             if n != sn:
                 ci = n 

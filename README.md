@@ -1,5 +1,7 @@
-# network-algo
-Python Implementations of common network algorithms and network visualization through networkx
+# network-algorithms
+Python implementations of common network algorithms and network visualization through networkx
+
+![Image of Matplotlib Visualization](https://i.imgur.com/VLfnEXs.png "Visualization")
 
 ## algorithms
 - **Dijkstra**'s Shortest Path Algorithm

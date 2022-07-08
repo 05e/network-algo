@@ -36,7 +36,7 @@ class Network():
         edge_labels = nx.get_edge_attributes(nxG, "weight")
         nx.draw_networkx_edge_labels(nxG, pos, edge_labels)
 
-        plt.tight_layout()
+        plt.axis('off')
         plt.show()
         
     def drawSolution(self, sol, fn=-1):
@@ -77,5 +77,5 @@ class Network():
         edge_labels = nx.get_edge_attributes(nxG, "weight")
         nx.draw_networkx_edge_labels(nxG, pos, edge_labels)
 
-        plt.tight_layout()
+        plt.axis('off')
         plt.show()

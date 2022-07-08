@@ -103,7 +103,7 @@ class Kruskal():
     # destination node for a loop, instead of 
     # recursively identifying parent nodes.
     #
-    # I left this here because so people
+    # I left this here so people
     # may learn from my mistakes 
     def solve_broken(self):
     

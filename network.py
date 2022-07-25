@@ -5,9 +5,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class Network():
-    def __init__(self, vertices, seed=8):
-        self.V = vertices
-        self.G = [[0] * vertices] * vertices
+    def __init__(self, adjmatrix, seed=8):
+        self.G = adjmatrix
+        self.V = len(adjmatrix)
         self.seed = seed
 
     def printNetwork(self):

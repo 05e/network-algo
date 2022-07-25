@@ -8,8 +8,8 @@ from algorithms.kruskal import Kruskal
 from algorithms.prim import Prim
 
 if __name__ == '__main__':
-    N = Network(8, 1337)
-    N.G = [
+    
+    G = [
     #    A  B  C  D  E  F  G  H  
         [0, 0, 5, 2, 0, 0, 0, 0], # A
         [0, 0, 0, 4, 0, 8, 0, 0], # B
@@ -20,9 +20,9 @@ if __name__ == '__main__':
         [0, 0, 4, 0, 5, 0, 0, 0], # G
         [0, 0, 0, 7, 2, 6, 0, 0]  # H
     ]
+    N = Network(G, 1337)
 
-    NN = Network(8, 1337)
-    NN.G = [
+    G = [
     #    A  B  C  D  E  F  G  H  
         [0, 0, 0, 4, 3, 8, 9, 0],# A
         [0, 0, 0, 7, 0, 3, 0, 6],# B
@@ -33,9 +33,9 @@ if __name__ == '__main__':
         [9, 0, 5, 0, 0, 0, 0, 0],# G
         [0, 6, 5, 0, 0, 0, 0, 0] # H
     ]
+    NN = Network(G, 1337)
 
-    NNN = Network(12, 1337)
-    NNN.G = [
+    G = [
     #    A  B  C  D  E  F  G  H  I  J  K  L
         [0, 3, 2, 0, 0, 3, 0, 7, 0, 0, 0, 0],# A
         [3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],# B
@@ -50,6 +50,7 @@ if __name__ == '__main__':
         [0, 0, 5, 8, 0, 0, 0, 6, 0, 0, 0, 0],# K
         [0, 0, 0, 0, 0, 0, 0, 3, 5, 4, 0, 0] # L
     ]
+    NNN = Network(G, 1337)
 
     N.drawNetwork()
     Dijkstra(N, 0)
@@ -62,4 +63,4 @@ if __name__ == '__main__':
 
     # if you want to create your own network, check out
     # https://graphonline.ru/en/ and import the adjacency list
-    # from graph -> adjacency list
+    #  from graph -> adjacency list

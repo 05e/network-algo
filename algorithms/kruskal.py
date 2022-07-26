@@ -12,17 +12,21 @@
 class Kruskal():
     def __init__(self, N):
         self.N = N
+        self.O = 0
         self.solve()
 
     def output(self, mst):
         mc = 0
+        print('-- KRUSKAL\'S ALGORITHM --')
         print('MST edges:')
         for e in mst:
             mc += e[2]
             print(chr(e[0] + ord('A')), '  -->  ', chr(e[1] + ord('A')), '(', e[2], ')')
             e.pop()
         print('Minimum Cost Spanning Tree: ', mc)
+        print('Operations: ', self.O, '\n')
         self.N.drawSolution(mst)
+        self.O = 0
 
 
     # Bubble sort
@@ -32,16 +36,21 @@ class Kruskal():
             for j in range(len(e) - 1):
                 if e[j][k] > e[j+1][k]:
                     e[j], e[j+1] = e[j+1], e[j]
+                self.O = self.O + 1
                 
 
     # Find-Union by Rank algorithm used
     # for proper loop detection in network
     def find(self, p, i):
+        self.O = self.O + 1
+
         if p[i] == i:
             return i
         return self.find(p, p[i])
 
     def union(self, p, r, n, m):
+        self.O = self.O + 1
+
         np = self.find(p, n)
         mp = self.find(p, m)
 
@@ -52,6 +61,7 @@ class Kruskal():
         else:
             p[mp] = np
             r[np] = r[np]+1
+
         
 
     def solve(self):
@@ -75,6 +85,8 @@ class Kruskal():
         i = 0
         si = 0
         while si < self.N.V - 1:
+            self.O = self.O + 1
+
             # Pick next edge in array and increase i for next iteration
             ne = e[i]
             i = i+1
@@ -135,6 +147,8 @@ class Kruskal():
         i = 0
         si = 0
         while len(sn) < self.N.V:
+            self.O = self.O + 1
+
             ne = e[i]
             i = i+1
             if ne[1] not in sn and [ne[1], ne[0], ne[2]] not in mst:

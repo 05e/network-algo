@@ -11,23 +11,29 @@ class Prim():
 
     def __init__(self, N):
         self.N = N
+        self.O = 0
         self.solve()
 
     def output(self, mst):
         mc = 0
+        print('-- PRIM\'S ALGORITHM --')
         print('MST edges:')
         for e in mst:
             mc += e[2]
             print(chr(e[0] + ord('A')), '  -->  ', chr(e[1] + ord('A')), '(', e[2], ')')
             e.pop()
         print('Minimum Cost Spanning Tree: ', mc)
+        print('Operations: ', self.O, '\n')
         self.N.drawSolution(mst)
+        self.O = 0
 
     # basically selection sort
     def smallestEdge(self, n, sn):
         min = sys.maxsize
         min_index = 0
         for m in range(self.N.V):
+            self.O = self.O + 1
+
             if self.N.G[n][m] > 0 and self.N.G[n][m] < min and m not in sn:
                 min = self.N.G[n][m]
                 min_index = m
@@ -52,8 +58,11 @@ class Prim():
         # to that node to MST and the node itself to 
         # nodes in the solution
         for _ in range(self.N.V - 1):
+
             se = [0, 0, sys.maxsize]
             for n in sn:
+                self.O = self.O + 1
+
                 e = self.smallestEdge(n, sn)
                 if e[2] < se[2]:
                     se = e

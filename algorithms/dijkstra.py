@@ -17,14 +17,18 @@ class Dijkstra():
 
     def __init__(self, N, sn, fn=-1):
         self.N = N
+        self.O = 0
         self.solve(sn, fn)
 
     def output(self, dl, sn, spt, fn):
+        print('-- DIJSKTRA\'S ALGORITHM --')
         print('Node      SP from', chr(sn + ord('A')))
         for n in range(self.N.V):
             path = '-'.join([chr(spt[n][m] + ord('A')) for m in range(len(spt[n]))])
             print(chr(n + ord('A')), '  -->  ', path, '(', dl[n], ')')
+        print('Operations: ', self.O, '\n')
         self.N.drawSolution(spt, fn)
+        self.O = 0
 
         
 # Example SPT Solution
@@ -45,6 +49,8 @@ class Dijkstra():
 
         # basically selection sort
         for n in range(self.N.V):
+            self.O = self.O + 1
+
             if dl[n] < min and pl[n] == False:
                 min = dl[n]
                 min_index = n
@@ -62,6 +68,8 @@ class Dijkstra():
         p[sn] = -1
 
         for n in range(self.N.V):
+            self.O = self.O + 1
+
             # Find nearest node from n not yet processed
             pn = self.nearestNode(dl, pl)
             pl[pn] = True
@@ -75,6 +83,7 @@ class Dijkstra():
             # If dl[an] > dl[pn] + (pn->an)
             # Then dl[an] = dl[pn]+(pn->an) IF !pl[an]
             for an in range(self.N.V):
+                self.O = self.O + 1
 
                 if self.N.G[pn][an] > 0 and pl[an] == False and dl[an] > dl[pn] + self.N.G[pn][an]:
                     dl[an] = dl[pn] + self.N.G[pn][an]

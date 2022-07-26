@@ -28,4 +28,6 @@ Prim(Network N) # Run and Display Prim's Algorithm
 Network(int[] AdjacencyMatrix, [int Seed]) # Initialize network with given adjacency matrix
 Network.drawNetwork() # Show network through plotmatlib
 Network.printNetwork() # Print network in terminal
+# Arguments:
+python main.py {seed}
 ```

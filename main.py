@@ -1,13 +1,17 @@
 # https://github.com/05e/network-algorithms
 
+import sys
 
 from network import Network
-# surely there's a better way to do this?
 from algorithms.dijkstra import Dijkstra
 from algorithms.kruskal import Kruskal
 from algorithms.prim import Prim
 
 if __name__ == '__main__':
+
+    seed = 0
+    if (len(sys.argv) > 1):
+        seed = int(sys.argv[1])
     
     G = [
     #    A  B  C  D  E  F  G  H  
@@ -20,7 +24,7 @@ if __name__ == '__main__':
         [0, 0, 4, 0, 5, 0, 0, 0], # G
         [0, 0, 0, 7, 2, 6, 0, 0]  # H
     ]
-    N = Network(G, 1337)
+    N = Network(G, seed)
 
     G = [
     #    A  B  C  D  E  F  G  H  
@@ -33,7 +37,7 @@ if __name__ == '__main__':
         [9, 0, 5, 0, 0, 0, 0, 0],# G
         [0, 6, 5, 0, 0, 0, 0, 0] # H
     ]
-    NN = Network(G, 1337)
+    NN = Network(G, seed)
 
     G = [
     #    A  B  C  D  E  F  G  H  I  J  K  L
@@ -50,7 +54,7 @@ if __name__ == '__main__':
         [0, 0, 5, 8, 0, 0, 0, 6, 0, 0, 0, 0],# K
         [0, 0, 0, 0, 0, 0, 0, 3, 5, 4, 0, 0] # L
     ]
-    NNN = Network(G, 1337)
+    NNN = Network(G, seed)
 
     N.drawNetwork()
     Dijkstra(N, 0)
